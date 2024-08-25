@@ -15,6 +15,7 @@ app.use(cors({
 app.get('/bfhl', (req, res) => {
     res.status(200).json({ "operation_code": 1 });
 });
+app.options('/bfhl', cors()); // Enable pre-flight requests for /bfhl
 
 app.post('/bfhl', (req, res) => {
     try {
