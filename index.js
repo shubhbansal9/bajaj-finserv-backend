@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 app.use(cors({
     origin: 'https://bajaj-finserv-frontend-tau.vercel.app',
     methods: 'GET,POST',
-    allowedHeaders: 'Content-Type'
+    allowedHeaders: 'Content-Type',
+    credentials:true,
+    optionSuccessStatus:200
 }));
 
 app.get('/bfhl', (req, res) => {
