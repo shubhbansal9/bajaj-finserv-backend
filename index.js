@@ -1,11 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');  // Import the cors package
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
 
-app.use(cors()); // Use the cors middleware
+// Allow only the specific frontend origin
+app.use(cors({
+    origin: 'https://bajaj-finserv-frontend-tau.vercel.app',
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type'
+}));
 
 app.get('/bfhl', (req, res) => {
     res.status(200).json({ "operation_code": 1 });
