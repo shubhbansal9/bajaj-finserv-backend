@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');  // Import the cors package
 
 const app = express();
 app.use(bodyParser.json());
+
+app.use(cors()); // Use the cors middleware
 
 app.get('/bfhl', (req, res) => {
     res.status(200).json({ "operation_code": 1 });
@@ -23,9 +26,9 @@ app.post('/bfhl', (req, res) => {
 
         const response = {
             "is_success": true,
-            "user_id": "Shubh_Bansal_29122002",  
-            "email": "shubh.bansal2021@vitstudent.ac.in",         
-            "roll_number": "21BCE0840",    
+            "user_id": "Shubh_Bansal_29122002",
+            "email": "shubh.bansal2021@vitstudent.ac.in",
+            "roll_number": "21BCE0840",
             "numbers": numbers,
             "alphabets": alphabets,
             "highest_lowercase_alphabet": highestLowercase
